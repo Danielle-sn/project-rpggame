@@ -1,5 +1,4 @@
 package Mapa;
-
 import java.awt.Dimension;
 
 import java.awt.Color;
