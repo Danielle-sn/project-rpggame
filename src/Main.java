@@ -1,7 +1,8 @@
-package main;
-import Mapa.Mapa;
+
 
 import javax.swing.JFrame;
+
+import Mapa.Mapa;
 
 public class Main {
     
