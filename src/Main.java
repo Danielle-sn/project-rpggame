@@ -2,7 +2,7 @@
 
 import javax.swing.JFrame;
 
-import Mapa;
+import Mapa.Mapa;
 
 public class Main {
     

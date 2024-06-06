@@ -1,8 +1,9 @@
-package mapa;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.datatransfer.SystemFlavorMap;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 
@@ -17,6 +18,9 @@ public class Mapa extends JPanel implements Runnable {
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol; //768 pixels
     final int screenHeight = tileSize * maxScreenRow; //576 pixels
+
+    //FPS
+    int fps = 60;
 
     KeyHandler keyH = new KeyHandler();
 
@@ -50,6 +54,9 @@ public class Mapa extends JPanel implements Runnable {
     @Override
     public void run() {
 
+        double drawInterval = 1000000000/fps; // 0.01666
+        double nextDrawTime = System.nanoTime() + drawInterval;
+
         //GAME LOOP
 
         while(gameThread != null) {
@@ -61,9 +68,30 @@ public class Mapa extends JPanel implements Runnable {
 
             // (UPDATE) atualizar informacao como as posicoes dos personagens
             update();
+
             
             // (DRAW) mostrar na tela essa atualizacao
             repaint();
+            
+            
+            try {
+                double remaininTime = nextDrawTime - System.nanoTime();
+                remainingTime = remainingTime/1000000;
+
+                if(remainingTime < 0) {
+                    remainingTime = 0;
+                }
+
+                Thread.sleep((long)remaininTime);
+
+                nextDrawTime += drawInterval;
+                
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
+
+
         }
     }
 
