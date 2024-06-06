@@ -1,4 +1,4 @@
-﻿package Inimigo;
+﻿package Personagem.Inimigo;
 
 public class Inimigo {
 	
