@@ -54,6 +54,9 @@ public class Mapa extends JPanel implements Runnable {
 
         while(gameThread != null) {
 
+            long currentTime = System.nanoTime();
+        
+
             System.out.println("O jogo esta rodando");
 
             // (UPDATE) atualizar informacao como as posicoes dos personagens
