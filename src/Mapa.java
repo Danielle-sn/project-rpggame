@@ -3,9 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.datatransfer.SystemFlavorMap;
 import javax.swing.JPanel;
-import javax.swing.plaf.basic.BasicComboBoxUI;
 
 public class Mapa extends JPanel implements Runnable {
 
@@ -75,14 +73,14 @@ public class Mapa extends JPanel implements Runnable {
             
             
             try {
-                double remaininTime = nextDrawTime - System.nanoTime();
+                double remainingTime = nextDrawTime - System.nanoTime();
                 remainingTime = remainingTime/1000000;
 
                 if(remainingTime < 0) {
                     remainingTime = 0;
                 }
 
-                Thread.sleep((long)remaininTime);
+                Thread.sleep((long)remainingTime);
 
                 nextDrawTime += drawInterval;
                 
