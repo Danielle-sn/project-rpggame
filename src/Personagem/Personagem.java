@@ -4,8 +4,7 @@ public class Personagem {
 	
 	private String name;
 	private int saude;
-	private int forca;
-	private int magia;
+	private int nivel;
 	
 	
 	public String getName() {
@@ -22,22 +21,13 @@ public class Personagem {
 		this.saude = saude;
 		}
 	}
-	public int getForca() {
-		
-		return forca;
+	public String getNivel() {
+		return name;
 	}
-	public void setForca(int forca) {
-		if(forca >=0) {
-		this.forca = forca;
-		}
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
 	}
-	public int getMagia() {
-		return magia;
-	}
-	public void setMagia(int magia) {
-		if(magia >=0) {
-		this.magia = magia;
-		}
-	}
+	
+	
 
 }
