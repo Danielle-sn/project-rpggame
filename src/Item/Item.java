@@ -1,25 +1,50 @@
 package Item;
 
+
 public class Item {
+
+	 private String nome;
+	 private String descricao;
+	 private String tipo;
 	
-	 public enum Tipo {
-	        ARMA,
-	        POCAO,
-	        ARMADURA
-	    }
-	 
-	 /* enum - é uma palavra-chave usada para definir um tipo especial de classe que 
-	  * representa um conjunto fixo de constantes (valores pré-definidos). 
-	  * Um enum em Java é uma maneira conveniente de representar 
-	  * um grupo de constantes relacionadas que não mudam ao longo do tempo.*/
-	 
-	 private Tipo tipoItem; // Atributo do tipo enum Tipo
-	 
-	public Tipo getTipoItem() {
-		return tipoItem;
+	
+	 public Item(String nome,String descricao, String tipo){
+
+		this.nome = nome;
+		this.descricao = descricao;
+		this.tipo = tipo;
 	}
-	public void setTipoItem(Tipo tipoItem) {
-		this.tipoItem = tipoItem;
+
+
+	public String getNome() {
+		return nome;
 	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	
 
 }
