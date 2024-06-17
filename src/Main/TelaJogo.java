@@ -1,3 +1,4 @@
+package Main;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -5,15 +6,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
-public class Mapa extends JPanel implements Runnable {
-
+public class TelaJogo extends JPanel implements Runnable {
+    // Game screen
     //SCREE SETTINGS
     final int originalTileSize = 16; //16x16 tile
     final int scale =3;
 
     final int tileSize = originalTileSize * scale; //48x48
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
+    final int maxScreenCol = 16; // total de colunas
+    final int maxScreenRow = 12; // total de linhas
     final int screenWidth = tileSize * maxScreenCol; //768 pixels
     final int screenHeight = tileSize * maxScreenRow; //576 pixels
 
@@ -33,11 +34,12 @@ public class Mapa extends JPanel implements Runnable {
 
 
 
-    public Mapa() {
+    public TelaJogo() {
 
             this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-            this.setBackground(Color.black);
-            this.setDoubleBuffered(true);
+            this.setBackground(Color.black); // color base da tela
+            this.setDoubleBuffered(true); //all the drawing from this component will be done
+        // in an offscreen paiting buffer. Using 'true' this an improve game´s rendering performace
             this.addKeyListener(keyH);
             this.setFocusable(true);
     }
@@ -95,7 +97,7 @@ public class Mapa extends JPanel implements Runnable {
 
 
     public void update(){
-
+        //  teclas de movimentacao
         if(keyH.upPressed == true) {
             playerY -= playerSpeed; 
         }
@@ -112,13 +114,15 @@ public class Mapa extends JPanel implements Runnable {
     }
 
     public void paintComponent(Graphics g){ //metodo padrao
-
+        // desenhar coisas na tela
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D)g;
 
             g2.setColor(Color.white);
-            g2.fillRect(playerX, playerY, tileSize, tileSize);
-            g2.dispose();
+            g2.fillRect(playerX, playerY, tileSize, tileSize); // desenhou o retângulo na tela
+            // fillRect(coord. em x, coord. em y, larg, altura)
+            g2.dispose(); // dispose of this graphics context and release any system resources that it is using
+
     }
 
 

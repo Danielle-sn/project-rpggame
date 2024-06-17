@@ -1,7 +1,6 @@
-
+package Main;
 
 import javax.swing.JFrame;
-
 
 public class Main {
     
@@ -12,10 +11,10 @@ public class Main {
         window.setResizable(false); // não vai ser resizable
         window.setTitle("Guardioes das Lendas Antigas");
 
-        Mapa mapa = new Mapa();
-        window.add(mapa);
+        TelaJogo telaJogo = new TelaJogo();
+        window.add(telaJogo); // adicionar telaJogo a tela
 
-        window.pack();
+        window.pack(); // ajusta  ajanela de acordo com as dfinições estabelecidas
 
         window.setLocationRelativeTo(null); // vai estar no centro
         window.setVisible(true);
