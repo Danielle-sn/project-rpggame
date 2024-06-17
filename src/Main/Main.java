@@ -19,7 +19,7 @@ public class Main {
         window.setLocationRelativeTo(null); // vai estar no centro
         window.setVisible(true);
 
-        mapa.startGameThred();
+        telaJogo.startGameThred();
 
 
     }
